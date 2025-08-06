@@ -3,29 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seri Project</title>
+    <title>세리 민박</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #f8f6f3 60%, #eaf0fa 100%);
+            min-height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 60px 0 60px;
+            background: transparent;
+        }
+        .navbar .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #222;
+            letter-spacing: -2px;
+        }
+        .navbar .menu {
+            display: flex;
+            gap: 36px;
+        }
+        .navbar .menu a {
+            text-decoration: none;
+            color: #222;
+            font-size: 1.15rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .navbar .menu a:hover {
+            color: #ff7e5f;
+        }
+        .main-section {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 60px;
+            margin-top: 60px;
+            padding: 0 60px;
+        }
+        .info-block {
+            flex: 1 1 400px;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            padding: 32px 28px 32px 28px;
+            display: flex;
+            flex-direction: column;
+            min-width: 320px;
+            max-width: 500px;
+            min-height: 400px;
+        }
+        .info-block h2 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .scroll-box {
+            background: #fcfcfc;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 20px 18px;
+            overflow-y: auto;
+            height: 320px;
+            font-size: 1.08rem;
+            color: #333;
+            line-height: 1.7;
+            position: relative;
+        }
+        .scroll-box::-webkit-scrollbar {
+            width: 8px;
+        }
+        .scroll-box::-webkit-scrollbar-thumb {
+            background: #ececec;
+            border-radius: 8px;
+        }
+        .scroll-box .icon {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+            color: #ff7e5f;
+            font-size: 1.2em;
+        }
+        @media (max-width: 1000px) {
+            .main-section {
+                flex-direction: column;
+                gap: 32px;
+                align-items: stretch;
+            }
+            .info-block {
+                max-width: 100%;
+            }
+        }
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                gap: 18px;
+                padding: 30px 10px 0 10px;
+            }
+            .main-section {
+                padding: 0 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Welcome to Seri</h1>
-            <p>This is a sample project</p>
-        </header>
-        
-        <main>
-            <section class="content">
-                <h2>About</h2>
-                <p>This is a simple HTML page with CSS and JavaScript.</p>
-                <button id="changeColorBtn">Change Background Color</button>
-            </section>
-        </main>
-        
-        <footer>
-            <p>&copy; 2024 Seri Project</p>
-        </footer>
-    </div>
-    
-    <script src="script.js"></script>
+    <nav class="navbar">
+        <div class="logo">세리 민박</div>
+        <button class="menu-toggle" aria-label="메뉴 열기">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <div class="menu">
+            <a href="#">이용 안내</a>
+            <a href="#">객실 정보</a>
+            <a href="#">주변</a>
+            <a href="#">갤러리</a>
+            <a href="#">문의</a>
+            <a href="#">오시는 길</a>
+        </div>
+    </nav>
+    <main class="main-section">
+        <section class="info-block">
+            <h2>이용 방법</h2>
+            <div class="scroll-box">
+                <span class="icon">🔴</span>세리민박은 구옥을 인테리어한 독채스테이 입니다.<br><br>
+                세리민박 : 제주시 한경면 고락로 187-4<br><br>
+                비밀번호는 핸드폰 뒷 4자리 # 입니다.<br><br>
+                !!온수는 싱크대에 보일러 조절기!<br>
+                온수버튼 2번 눌러야 설정됩니다.<br>
+                (사용시작 10분전에 누르셔야 뜨거운물이 나옵니다.)<br><br>
+                음식물쓰레기는 서랍에 흰색봉지에 분리해 주세요!<br><br>
+                냉장고 생수 넣어드렸으니 드셔도 됩니다.<br><br>
+                *지쿠지 무료로 이용 가능합니다.<br>
+                지쿠지는 1일 1회 사용제한 됩니다. (입욕제 사용 불가)
+            </div>
+        </section>
+        <section class="info-block">
+            <h2>주의 사항</h2>
+            <div class="scroll-box">
+                <span class="icon">🔴</span>-예약인원 외 인원 무단출입 시 강제 퇴실 됩니다<br><br>
+                -비건브랜드 페이스인네이처 어메니티 (샴푸,린스,바디워시)<br>
+                *어메니티 브랜드는 변경될 수 있습니다<br><br>
+                -입퇴실시간은 반드시 지켜주세요<br>
+                *입실시간 오후4시, 퇴실시간 오전11시<br><br>
+                -드라이기,드립버거, 커피포트, 식수, 커피잔, 물컵, 냉장고, 전자렌지, 인덕션, 빔프로젝터, 스마트티비, 블루투스스피커,유아식기완비<br><br>
+                -예스키즈존이지만 실내마당이 거칠고 돌이 사용된 공간이 많습니다. 아이들이 다치지 않게 주의 바랍니다<br><br>
+                -미성년자는 보호자 없이 투숙이 불가능 합니다
+            </div>
+        </section>
+    </main>
+    <section class="gallery-section">
+        <div class="gallery-wrapper">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x220?text=이미지A" alt="이미지A" />
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x220?text=이미지B" alt="이미지B" />
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x220?text=이미지C" alt="이미지C" />
+            </div>
+        </div>
+        <div class="gallery-controls">
+            <button class="gallery-btn prev">이전</button>
+            <button class="gallery-btn next">다음</button>
+        </div>
+    </section>
+    <section class="gallery-section">
+        <h2 class="gallery-title">객실정보</h2>
+        <div class="gallery-wrapper">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x220?text=객실1" alt="객실1" />
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x220?text=객실2" alt="객실2" />
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x220?text=객실3" alt="객실3" />
+            </div>
+        </div>
+        <div class="gallery-controls">
+            <button class="gallery-btn prev">이전</button>
+            <button class="gallery-btn next">다음</button>
+        </div>
+    </section>
+    <section class="gallery-section">
+        <h2 class="gallery-title">갤러리</h2>
+        <div class="gallery-wrapper">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x220?text=갤러리1" alt="갤러리1" />
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x220?text=갤러리2" alt="갤러리2" />
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x220?text=갤러리3" alt="갤러리3" />
+            </div>
+        </div>
+        <div class="gallery-controls">
+            <button class="gallery-btn prev">이전</button>
+            <button class="gallery-btn next">다음</button>
+        </div>
+    </section>
+    <section class="gallery-section">
+        <h2 class="gallery-title">볼거리/먹거리</h2>
+        <div class="gallery-wrapper">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x220?text=볼거리1" alt="볼거리1" />
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x220?text=볼거리2" alt="볼거리2" />
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x220?text=볼거리3" alt="볼거리3" />
+            </div>
+        </div>
+        <div class="gallery-controls">
+            <button class="gallery-btn prev">이전</button>
+            <button class="gallery-btn next">다음</button>
+        </div>
+    </section>
+    <section class="contact-section">
+        <h2 class="contact-title">문의 / 오시는 길</h2>
+        <div class="map-container">
+            <!-- 구글 지도 iframe -->
+            <iframe
+                title="세리민박 위치 지도"
+                width="100%"
+                height="320"
+                frameborder="0"
+                style="border:0; border-radius:18px; box-shadow:0 2px 12px rgba(0,0,0,0.08); margin-top:32px;"
+                src="https://www.google.com/maps?q=제주시+한경면+고락로+187-4&output=embed"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+        </div>
+        <div class="contact-content">
+            <p>예약 문의는<br>
+                <a href="https://instagram.com/seri_minbak" target="_blank" class="contact-link">인스타그램 DM</a><br>
+                또는<br>
+                010-5505-2242 (전화 x) 문자로 문의해주세요.
+            </p>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <div class="footer-title">세리 민박</div>
+                <div class="footer-desc">주소 : 제주시 한경면 고락로 187-4 (세리민박)</div>
+                <div class="footer-desc">사업자등록번호 : 750-08-03049</div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">관리자</div>
+                <div class="footer-desc">관리자</div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">연락처</div>
+                <div class="footer-desc">연락처 : 010-5505-2242</div>
+                <div class="footer-desc">Email : salee33@naver.com</div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">Social</div>
+                <a href="https://instagram.com/seri_minbak" target="_blank" class="footer-social">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="24" height="24" rx="6" fill="#fff"/>
+                        <path d="M16.98 3H7.02C4.25 3 3 4.25 3 7.02V16.98C3 19.75 4.25 21 7.02 21H16.98C19.75 21 21 19.75 21 16.98V7.02C21 4.25 19.75 3 16.98 3ZM19.5 16.98C19.5 18.43 18.43 19.5 16.98 19.5H7.02C5.57 19.5 4.5 18.43 4.5 16.98V7.02C4.5 5.57 5.57 4.5 7.02 4.5H16.98C18.43 4.5 19.5 5.57 19.5 7.02V16.98Z" fill="#222"/>
+                        <path d="M12 7.5C9.52 7.5 7.5 9.52 7.5 12C7.5 14.48 9.52 16.5 12 16.5C14.48 16.5 16.5 14.48 16.5 12C16.5 9.52 14.48 7.5 12 7.5ZM12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9C13.66 9 15 10.34 15 12C15 13.66 13.66 15 12 15Z" fill="#222"/>
+                        <circle cx="17" cy="7" r="1" fill="#222"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        menuToggle.addEventListener('click', function() {
+            menu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        // 모바일에서 화면 크기 변경 시 메뉴 자동 닫힘
+        window.addEventListener('resize', function() {
+            if(window.innerWidth > 600) {
+                menu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+    });
+    </script>
 </body>
 </html> 
