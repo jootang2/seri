@@ -199,12 +199,63 @@
             overflow: hidden;
         }
         
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
+                 .gallery-item img {
+             width: 100%;
+             height: 250px;
+             object-fit: cover;
+             display: block;
+             cursor: pointer;
+         }
+         
+         /* 이미지 팝업 스타일 */
+         .image-popup {
+             display: none;
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background: rgba(0, 0, 0, 0.9);
+             z-index: 1000;
+             justify-content: center;
+             align-items: center;
+             padding: 20px;
+         }
+         
+         .image-popup.active {
+             display: flex;
+         }
+         
+         .popup-content {
+             position: relative;
+             max-width: 90%;
+             max-height: 90%;
+         }
+         
+         .popup-image {
+             width: 100%;
+             height: auto;
+             max-height: 90vh;
+             object-fit: contain;
+             border-radius: 8px;
+         }
+         
+         .popup-close {
+             position: absolute;
+             top: -40px;
+             right: 0;
+             background: none;
+             border: none;
+             color: white;
+             font-size: 2rem;
+             cursor: pointer;
+             padding: 10px;
+             line-height: 1;
+         }
+         
+         .popup-close:hover {
+             opacity: 0.7;
+         }
         
         .gallery-controls {
             display: flex;
@@ -492,10 +543,7 @@
                 <div class="footer-desc">주소 : 제주시 한경면 고락로 187-4 (세리민박)</div>
                 <div class="footer-desc">사업자등록번호 : 750-08-03049</div>
             </div>
-            <div class="footer-col">
-                <div class="footer-title">관리자</div>
-                <div class="footer-desc">관리자</div>
-            </div>
+
             <div class="footer-col">
                 <div class="footer-title">연락처</div>
                 <div class="footer-desc">연락처 : 010-5505-2242</div>
@@ -513,8 +561,17 @@
                 </a>
             </div>
         </div>
-    </footer>
-    <script>
+         </footer>
+     
+     <!-- 이미지 팝업 -->
+     <div class="image-popup" id="imagePopup">
+         <div class="popup-content">
+             <button class="popup-close" id="popupClose">&times;</button>
+             <img class="popup-image" id="popupImage" src="" alt="확대된 이미지">
+         </div>
+     </div>
+     
+     <script>
          document.addEventListener('DOMContentLoaded', function() {
          const menuToggle = document.querySelector('.menu-toggle');
          const menu = document.querySelector('.menu');
@@ -714,12 +771,51 @@
             }
         });
 
-        // 갤러리 초기화
-        initGallery(1);
-        initGallery(2);
-        initGallery(3);
-        initGallery(4);
-    });
+                 // 갤러리 초기화
+         initGallery(1);
+         initGallery(2);
+         initGallery(3);
+         initGallery(4);
+         
+         // 이미지 팝업 기능
+         const imagePopup = document.getElementById('imagePopup');
+         const popupImage = document.getElementById('popupImage');
+         const popupClose = document.getElementById('popupClose');
+         
+                   // 모든 갤러리 이미지에 클릭 이벤트 추가
+          const galleryImages = document.querySelectorAll('.gallery-item img');
+          galleryImages.forEach(img => {
+              img.addEventListener('click', function() {
+                  // 모든 화면 크기에서 팝업 표시
+                  popupImage.src = this.src;
+                  popupImage.alt = this.alt;
+                  imagePopup.classList.add('active');
+                  document.body.style.overflow = 'hidden'; // 스크롤 방지
+              });
+          });
+         
+         // 팝업 닫기 버튼
+         popupClose.addEventListener('click', function() {
+             imagePopup.classList.remove('active');
+             document.body.style.overflow = ''; // 스크롤 복원
+         });
+         
+         // 팝업 배경 클릭 시 닫기
+         imagePopup.addEventListener('click', function(e) {
+             if (e.target === imagePopup) {
+                 imagePopup.classList.remove('active');
+                 document.body.style.overflow = '';
+             }
+         });
+         
+         // ESC 키로 팝업 닫기
+         document.addEventListener('keydown', function(e) {
+             if (e.key === 'Escape' && imagePopup.classList.contains('active')) {
+                 imagePopup.classList.remove('active');
+                 document.body.style.overflow = '';
+             }
+         });
+     });
     </script>
 </body>
 </html> 
