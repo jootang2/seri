@@ -72,9 +72,39 @@
             font-weight: 500;
             transition: color 0.2s;
         }
-                 .navbar .menu a:hover {
-             color: #ff7e5f;
-         }
+                          .navbar .menu a:hover {
+              color: #ff7e5f;
+          }
+          
+          /* 언어 선택 버튼 */
+          .language-toggle {
+              display: flex;
+              gap: 8px;
+              align-items: center;
+              margin-left: 20px;
+          }
+          
+          .lang-btn {
+              padding: 8px 12px;
+              background: transparent;
+              border: 2px solid #222;
+              color: #222;
+              border-radius: 8px;
+              font-size: 0.9rem;
+              font-weight: 600;
+              cursor: pointer;
+              transition: all 0.3s ease;
+          }
+          
+          .lang-btn.active {
+              background: #ff7e5f;
+              border-color: #ff7e5f;
+              color: #fff;
+          }
+          
+          .lang-btn:hover:not(.active) {
+              background: #f0f0f0;
+          }
          
          /* 햄버거 메뉴 아이콘 */
          .menu-toggle {
@@ -169,12 +199,17 @@
             }
         }
                  @media (max-width: 600px) {
-             .navbar {
-                 flex-direction: column;
-                 gap: 18px;
-                 padding: 30px 10px 0 10px;
-                 position: relative;
-             }
+                           .navbar {
+                  flex-direction: column;
+                  gap: 18px;
+                  padding: 30px 10px 0 10px;
+                  position: relative;
+              }
+              
+              .language-toggle {
+                  margin-left: 0;
+                  margin-top: 10px;
+              }
              
              .menu-toggle {
                  display: flex;
@@ -381,56 +416,100 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-                 <div class="menu">
-             <a href="#main-section">이용 안내</a>
-             <a href="#gallery1">객실정보</a>
-             <a href="#gallery2">갤러리</a>
-             <a href="#contact-section">문의/오시는 길</a>
-         </div>
+                          <div class="menu">
+              <a href="#main-section" data-ko="이용 안내" data-en="Information">이용 안내</a>
+              <a href="#gallery1" data-ko="객실정보" data-en="Room Info">객실정보</a>
+              <a href="#gallery2" data-ko="갤러리" data-en="Gallery">갤러리</a>
+              <a href="#contact-section" data-ko="문의/오시는 길" data-en="Contact/Location">문의/오시는 길</a>
+          </div>
+          <div class="language-toggle">
+              <button class="lang-btn active" data-lang="ko">한국어</button>
+              <button class="lang-btn" data-lang="en">English</button>
+          </div>
     </nav>
          <main class="main-section" id="main-section">
-        <section class="info-block">
-            <h2>이용 방법</h2>
-                         <div class="scroll-box">
-                 <span class="icon">🔴</span>세리민박은 구옥을 인테리어한 독채스테이 입니다.<br><br>
-                 세리민박 : 제주시 한경면 고락로 187-4<br><br>
-                 비밀번호는 핸드폰 뒷 4자리 # 입니다.<br><br>
-                 ‼온수는 싱크대옆에 보일러 조절기‼<br>
-                 온수버튼 2번 눌러야 설정됩니다<br>
-                 (사용하시기 10분전에 누르셔야 뜨거운물이 나옵니다.)<br><br>
-                 음식물쓰레기는 서랍에 흰색봉지에 분리해 주세요!<br><br>
-                 냉장고 생수 넣어드렸으니 드셔도 됩니다.<br><br>
-                 *자쿠지 무료로 이용 가능하십니다.<br>
-                 자쿠지는 1일 1회 사용제한 됩니다. (입욕제 사용 불가능)<br><br>
-                 와이파이 : <br>
-                 KT_GIGA_30A1<br>
-                 KT_GIGA_5G_30A1<br>
-                 KT_GIGA_Mesh_30A1<br><br>
-                 비밀번호 : gd77xe8022
-             </div>
-        </section>
-        <section class="info-block">
-            <h2>주의 사항</h2>
-                         <div class="scroll-box">
-                 <span class="icon">🔴</span>-예약인원 외 인원 무단출입 시 강제 퇴실 됩니다<br><br>
-                 -비건브랜드 페이스인네이처 어메니티 (샴푸,린스,바디워시)<br>
-                 *어메니티 브랜드는 변경될 수 있습니다<br><br>
-                 -입퇴실시간은 반드시 지켜주세요<br>
-                 *입실시간 오후4시, 퇴실시간 오전11시<br><br>
-                 -드라이기,드립백커피, 커피포트, 삼다수, 커피잔, 물컵, 냉장고, 전자렌지, 인덕션, 빔프로젝터, 스마트티비, 블루투스스피커,유아식기한세트<br><br>
-                 -예스키즈존이지만 실내마감이 거칠고 돌이 사용된 공간이 많습니다. 아이들이 다치지 않게 주의 바랍니다<br><br>
-                 -미성년자는 보호자 없이 투숙이 불가능 합니다<br><br>
-                 -자쿠지, 불멍화로등 모든 공간에서 안전사고에 주의하여 주세요<br><br>
-                 -매달 전문 업체에서 방역을 하고 있으나, 제주도 농촌지역 특성상 벌레로인한 환불은 불가 합니다<br>
-                 (벌레와 곤충에 예민하신분은 신중하게 예약바랍니다)<br><br>
-                 -다음 게스트를 위한 냄새가 심한 요리는 불가 합니다<br>
-                 (생선, 고기굽기, 청국장, 튀김, 매운탕 불가)<br><br>
-                 -부주의로 인한 안전사고 및 귀중품 분실은 책임지지 않습니다<br><br>
-                 -침실에서는 낙서나 음식물 섭취가 불가능 합니다<br><br>
-                 -방범 및 안전관리를 위해 현관입구 cctv 작동하고 있습니다<br><br>
-                 -실내 모든공간은 금연 입니다
-             </div>
-        </section>
+                 <section class="info-block">
+             <h2 data-ko="이용 방법" data-en="How to Use">이용 방법</h2>
+                          <div class="scroll-box">
+                  <div class="content-ko">
+                      <span class="icon">🔴</span>세리민박은 구옥을 인테리어한 독채스테이 입니다.<br><br>
+                      세리민박 : 제주시 한경면 고락로 187-4<br><br>
+                      비밀번호는 핸드폰 뒷 4자리 # 입니다.<br><br>
+                      ‼온수는 싱크대옆에 보일러 조절기‼<br>
+                      온수버튼 2번 눌러야 설정됩니다<br>
+                      (사용하시기 10분전에 누르셔야 뜨거운물이 나옵니다.)<br><br>
+                      음식물쓰레기는 서랍에 흰색봉지에 분리해 주세요!<br><br>
+                      냉장고 생수 넣어드렸으니 드셔도 됩니다.<br><br>
+                      *자쿠지 무료로 이용 가능하십니다.<br>
+                      자쿠지는 1일 1회 사용제한 됩니다. (입욕제 사용 불가능)<br><br>
+                      와이파이 : <br>
+                      KT_GIGA_30A1<br>
+                      KT_GIGA_5G_30A1<br>
+                      KT_GIGA_Mesh_30A1<br><br>
+                      비밀번호 : gd77xe8022
+                  </div>
+                  <div class="content-en" style="display: none;">
+                      <span class="icon">🔴</span>Seri Guesthouse is a private stay renovated from an old house.<br><br>
+                      Seri Guesthouse: 187-4 Gorak-ro, Hangyeong-myeon, Jeju-si<br><br>
+                      The password is the last 4 digits of your phone number #.<br><br>
+                      ‼Hot water is controlled by the boiler next to the sink‼<br>
+                      Press the hot water button twice to set it<br>
+                      (Press 10 minutes before use to get hot water.)<br><br>
+                      Please separate food waste in white bags in the drawer!<br><br>
+                      Mineral water is provided in the refrigerator, feel free to drink it.<br><br>
+                      *Jacuzzi is available for free.<br>
+                      Jacuzzi is limited to 1 use per day. (Bath salts not available)<br><br>
+                      WiFi: <br>
+                      KT_GIGA_30A1<br>
+                      KT_GIGA_5G_30A1<br>
+                      KT_GIGA_Mesh_30A1<br><br>
+                      Password: gd77xe8022
+                  </div>
+              </div>
+         </section>
+                 <section class="info-block">
+             <h2 data-ko="주의 사항" data-en="Important Notes">주의 사항</h2>
+                          <div class="scroll-box">
+                  <div class="content-ko">
+                      <span class="icon">🔴</span>-예약인원 외 인원 무단출입 시 강제 퇴실 됩니다<br><br>
+                      -비건브랜드 페이스인네이처 어메니티 (샴푸,린스,바디워시)<br>
+                      *어메니티 브랜드는 변경될 수 있습니다<br><br>
+                      -입퇴실시간은 반드시 지켜주세요<br>
+                      *입실시간 오후4시, 퇴실시간 오전11시<br><br>
+                      -드라이기,드립백커피, 커피포트, 삼다수, 커피잔, 물컵, 냉장고, 전자렌지, 인덕션, 빔프로젝터, 스마트티비, 블루투스스피커,유아식기한세트<br><br>
+                      -예스키즈존이지만 실내마감이 거칠고 돌이 사용된 공간이 많습니다. 아이들이 다치지 않게 주의 바랍니다<br><br>
+                      -미성년자는 보호자 없이 투숙이 불가능 합니다<br><br>
+                      -자쿠지, 불멍화로등 모든 공간에서 안전사고에 주의하여 주세요<br><br>
+                      -매달 전문 업체에서 방역을 하고 있으나, 제주도 농촌지역 특성상 벌레로인한 환불은 불가 합니다<br>
+                      (벌레와 곤충에 예민하신분은 신중하게 예약바랍니다)<br><br>
+                      -다음 게스트를 위한 냄새가 심한 요리는 불가 합니다<br>
+                      (생선, 고기굽기, 청국장, 튀김, 매운탕 불가)<br><br>
+                      -부주의로 인한 안전사고 및 귀중품 분실은 책임지지 않습니다<br><br>
+                      -침실에서는 낙서나 음식물 섭취가 불가능 합니다<br><br>
+                      -방범 및 안전관리를 위해 현관입구 cctv 작동하고 있습니다<br><br>
+                      -실내 모든공간은 금연 입니다
+                  </div>
+                  <div class="content-en" style="display: none;">
+                      <span class="icon">🔴</span>-Unauthorized entry by persons other than reserved guests will result in forced eviction<br><br>
+                      -Vegan brand Face in Nature amenities (shampoo, rinse, body wash)<br>
+                      *Amenity brands may change<br><br>
+                      -Please strictly observe check-in and check-out times<br>
+                      *Check-in: 4 PM, Check-out: 11 AM<br><br>
+                      -Hair dryer, drip coffee, coffee pot, Samdasoo, coffee cups, water cups, refrigerator, microwave, induction, beam projector, smart TV, Bluetooth speaker, baby tableware set<br><br>
+                      -Yes Kids Zone, but indoor finishing is rough and there are many spaces using stone. Please be careful not to hurt children<br><br>
+                      -Minors cannot stay without a guardian<br><br>
+                      -Please be careful about safety accidents in all spaces including jacuzzi and fire pit<br><br>
+                      -Professional pest control is done monthly, but refunds due to bugs are not possible due to the rural nature of Jeju Island<br>
+                      (Please book carefully if you are sensitive to bugs and insects)<br><br>
+                      -Strong-smelling cooking for the next guest is not allowed<br>
+                      (Fish, meat grilling, cheonggukjang, fried food, spicy stew not allowed)<br><br>
+                      -We are not responsible for safety accidents and loss of valuables due to carelessness<br><br>
+                      -Graffiti or food consumption is not allowed in bedrooms<br><br>
+                      -CCTV is operating at the entrance for security and safety management<br><br>
+                      -All indoor spaces are non-smoking
+                  </div>
+              </div>
+         </section>
     </main>
     <section class="gallery-section">
         <h2 class="gallery-title"></h2>
@@ -452,12 +531,12 @@
              </div>
          </div>
         <div class="gallery-controls">
-            <button class="gallery-btn prev" data-gallery="1">이전</button>
-            <button class="gallery-btn next" data-gallery="1">다음</button>
+            <button class="gallery-btn prev" data-gallery="1" data-ko="이전" data-en="Previous">이전</button>
+            <button class="gallery-btn next" data-gallery="1" data-ko="다음" data-en="Next">다음</button>
         </div>
     </section>
     <section class="gallery-section">
-        <h2 class="gallery-title">객실정보</h2>
+        <h2 class="gallery-title" data-ko="객실정보" data-en="Room Info">객실정보</h2>
                  <div class="gallery-wrapper" id="gallery2">
              <div class="gallery-item">
                  <img src="./pic/room_1.jpg" alt="객실1" />
@@ -482,12 +561,12 @@
              </div>
          </div>
         <div class="gallery-controls">
-            <button class="gallery-btn prev" data-gallery="2">이전</button>
-            <button class="gallery-btn next" data-gallery="2">다음</button>
+            <button class="gallery-btn prev" data-gallery="2" data-ko="이전" data-en="Previous">이전</button>
+            <button class="gallery-btn next" data-gallery="2" data-ko="다음" data-en="Next">다음</button>
         </div>
     </section>
     <section class="gallery-section">
-        <h2 class="gallery-title">갤러리</h2>
+        <h2 class="gallery-title" data-ko="갤러리" data-en="Gallery">갤러리</h2>
                  <div class="gallery-wrapper" id="gallery3">
              <div class="gallery-item">
                  <img src="./pic/gallery_1.jpg" alt="갤러리1" />
@@ -515,8 +594,8 @@
              </div>
          </div>
         <div class="gallery-controls">
-            <button class="gallery-btn prev" data-gallery="3">이전</button>
-            <button class="gallery-btn next" data-gallery="3">다음</button>
+            <button class="gallery-btn prev" data-gallery="3" data-ko="이전" data-en="Previous">이전</button>
+            <button class="gallery-btn next" data-gallery="3" data-ko="다음" data-en="Next">다음</button>
         </div>
     </section>
     <!-- <section class="gallery-section">
@@ -547,7 +626,7 @@
         </div>
     </section> -->
          <section class="contact-section" id="contact-section">
-        <h2 class="contact-title">문의 / 오시는 길</h2>
+        <h2 class="contact-title" data-ko="문의/오시는 길" data-en="Contact/Location">문의 / 오시는 길</h2>
         <div class="map-container">
             <!-- 구글 지도 iframe -->
                          <iframe
@@ -561,13 +640,6 @@
                  loading="lazy"
                  referrerpolicy="no-referrer-when-downgrade"
              ></iframe>
-        </div>
-        <div class="contact-content">
-            <p>예약 문의는<br>
-                <a href="https://instagram.com/seri__jeju" target="_blank" class="contact-link">인스타그램 DM</a><br>
-                또는<br>
-                010-5505-2242 (전화 x) 문자로 문의해주세요.
-            </p>
         </div>
     </section>
     <footer class="footer">
@@ -842,13 +914,58 @@
              }
          });
          
-         // ESC 키로 팝업 닫기
-         document.addEventListener('keydown', function(e) {
-             if (e.key === 'Escape' && imagePopup.classList.contains('active')) {
-                 imagePopup.classList.remove('active');
-                 document.body.style.overflow = '';
-             }
-         });
+                   // ESC 키로 팝업 닫기
+          document.addEventListener('keydown', function(e) {
+              if (e.key === 'Escape' && imagePopup.classList.contains('active')) {
+                  imagePopup.classList.remove('active');
+                  document.body.style.overflow = '';
+              }
+          });
+          
+          // 언어 변경 기능
+          const langButtons = document.querySelectorAll('.lang-btn');
+          let currentLang = 'ko';
+          
+          langButtons.forEach(btn => {
+              btn.addEventListener('click', function() {
+                  const lang = this.getAttribute('data-lang');
+                  if (lang === currentLang) return;
+                  
+                  // 버튼 상태 변경
+                  langButtons.forEach(b => b.classList.remove('active'));
+                  this.classList.add('active');
+                  
+                  // 언어 변경
+                  changeLanguage(lang);
+                  currentLang = lang;
+              });
+          });
+          
+                     function changeLanguage(lang) {
+               // 제목 변경
+               const titles = document.querySelectorAll('h2[data-ko][data-en]');
+               titles.forEach(title => {
+                   title.textContent = title.getAttribute(`data-${lang}`);
+               });
+               
+               // 네비게이션 메뉴 변경
+               const menuLinks = document.querySelectorAll('.menu a[data-ko][data-en]');
+               menuLinks.forEach(link => {
+                   link.textContent = link.getAttribute(`data-${lang}`);
+               });
+               
+               // 내용 변경
+               const contentKos = document.querySelectorAll('.content-ko');
+               const contentEns = document.querySelectorAll('.content-en');
+               
+               if (lang === 'ko') {
+                   contentKos.forEach(content => content.style.display = 'block');
+                   contentEns.forEach(content => content.style.display = 'none');
+               } else {
+                   contentKos.forEach(content => content.style.display = 'none');
+                   contentEns.forEach(content => content.style.display = 'block');
+               }
+           }
      });
     </script>
 </body>
